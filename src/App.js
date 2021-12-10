@@ -21,6 +21,10 @@ class App extends Component {
     if (prevState.searchValue !== this.state.searchValue) this.fetchImages();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.closeModal);
+  }
+
   fetchImages = () => {
     const { searchValue, page } = this.state;
 
